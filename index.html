@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora | Cafeteria artesanal</title>
+<meta name="description" content="Café Aurora: cafés 100% arábica, pão de queijo quentinho e um cantinho aconchegante para o seu dia.">
+<style>
+:root{--creme:#FAF7F2;--cafe:#6F4E37;--cafe-esc:#3E2C20;--terra:#C85A32;--terra-esc:#A8461F;--pinho:#2E5A44;--ouro:#F4D06F;--linha:#E8DFD2;--branco:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--creme);color:var(--cafe-esc);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.logo{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);color:var(--cafe);margin-bottom:12px}
+.sub{max-width:60ch;color:#6b5a4d;margin-bottom:36px}
+:focus-visible{outline:3px solid var(--pinho);outline-offset:3px}
+
+header{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.96);border-bottom:1px solid var(--linha);backdrop-filter:blur(6px)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;flex-wrap:wrap}
+.logo{font-size:1.45rem;font-weight:700;color:var(--cafe);text-decoration:none}
+.logo span{color:var(--terra)}
+nav ul{display:flex;gap:4px;list-style:none;flex-wrap:wrap}
+nav a{display:block;padding:8px 12px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;color:var(--cafe)}
+nav a:hover{background:var(--linha)}
+
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;background:var(--terra);color:#fff;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:1rem;font-family:inherit;transition:background .2s,transform .2s}
+.btn:hover{background:var(--terra-esc);transform:translateY(-2px)}
+.btn.sec{background:transparent;color:var(--cafe);border:2px solid var(--cafe)}
+
+.hero{background:var(--cafe-esc);color:var(--creme);padding:64px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.selo{display:inline-block;background:var(--ouro);color:var(--cafe-esc);font-weight:700;font-size:.85rem;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);margin-bottom:16px}
+.hero p{font-size:1.15rem;max-width:46ch;margin-bottom:28px;color:#EADFD1}
+.acoes{display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn.sec{color:var(--creme);border-color:var(--creme)}
+.hero .btn.sec:hover{background:var(--creme);color:var(--cafe-esc)}
+.mascote{display:flex;flex-direction:column;align-items:center;text-align:center}
+.mascote svg{width:min(100%,280px);height:auto;animation:flutua 4s ease-in-out infinite}
+.mascote small{margin-top:8px;color:var(--ouro);font-weight:600}
+@keyframes flutua{50%{transform:translateY(-8px)}}
+
+.sobre .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.sobre p+p{margin-top:14px}
+.numeros{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.numeros div{background:var(--branco);border:1px solid var(--linha);border-radius:16px;padding:22px}
+.numeros strong{display:block;font-family:Georgia,serif;font-size:1.9rem;color:var(--terra)}
+
+.destaques{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.card{background:var(--branco);border:1px solid var(--linha);border-radius:18px;padding:26px;position:relative;box-shadow:0 6px 18px rgba(111,78,55,.08)}
+.card .emoji{font-size:2.2rem;display:block;margin-bottom:8px}
+.card h3{font-size:1.25rem;color:var(--cafe);margin-bottom:6px}
+.card .preco{display:inline-block;margin-top:12px;font-weight:700;color:var(--terra)}
+.natal{background:var(--pinho);color:var(--creme)}
+.natal h2{color:var(--ouro)}
+.natal .sub{color:#D7E6DC}
+.natal .card{background:#27503B;border-color:#3F7258;box-shadow:none}
+.natal .card h3,.natal .card .preco{color:var(--ouro)}
+.tag{position:absolute;top:-12px;right:16px;background:var(--terra);color:#fff;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:999px}
+.cardapio{background:#F3ECE1}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:22px}
+.cat{background:var(--branco);border:1px solid var(--linha);border-radius:18px;padding:24px}
+.cat h3{color:var(--cafe);font-size:1.25rem;margin-bottom:4px}
+.cat>p{font-size:.92rem;color:#7a6858;margin-bottom:14px}
+.cat ul{list-style:none}
+.cat li{padding:12px 0;border-top:1px dashed var(--linha)}
+.cat li b{display:flex;justify-content:space-between;gap:12px}
+.cat li b span{color:var(--terra);white-space:nowrap}
+.cat li small{display:block;color:#6b5a4d;font-size:.92rem;line-height:1.5}
+
+.difs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.dif{text-align:center;padding:28px 20px;border-radius:18px;background:var(--branco);border:1px solid var(--linha)}
+.dif .ic{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:var(--ouro);font-size:1.8rem}
+.dif h3{font-size:1.1rem;color:var(--cafe)}
+
+.contato{background:var(--cafe);color:var(--creme)}
+.contato h2{color:var(--ouro)}
+.contato .sub{color:#EADFD1}
+.contato .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.infos{list-style:none;display:grid;gap:18px}
+.infos li{display:flex;gap:14px;align-items:flex-start}
+.infos .ic{font-size:1.5rem}
+.infos a{color:var(--ouro)}
+form{background:var(--creme);color:var(--cafe-esc);border-radius:18px;padding:26px;display:grid;gap:14px}
+label{font-weight:600;font-size:.92rem}
+input,textarea{width:100%;margin-top:4px;padding:12px 14px;border:1.5px solid #CDBFAE;border-radius:10px;font:inherit;background:#fff;color:inherit}
+textarea{min-height:110px;resize:vertical}
+
+footer{background:var(--cafe-esc);color:#D9CBB9;text-align:center;padding:30px 20px;font-size:.95rem}
+footer strong{color:var(--ouro);font-family:Georgia,serif}
+
+@media(max-width:820px){
+ section{padding:56px 0}
+ .hero .wrap,.sobre .wrap,.contato .wrap{grid-template-columns:1fr}
+ .mascote{order:-1}.mascote svg{width:170px}
+ .bar{justify-content:center;padding:8px 0}
+ nav ul{justify-content:center}
+ nav a{padding:6px 10px;font-size:.9rem}
+ html{scroll-padding-top:110px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mascote svg{animation:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap bar">
+  <a href="#inicio" class="logo">Café <span>Aurora</span></a>
+  <nav aria-label="Menu principal">
+   <ul>
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#diferenciais">Diferenciais</a></li>
+    <li><a href="#contato">Contato</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+ <div class="wrap">
+  <div>
+   <span class="selo">🎄 Cardápio de Natal já disponível</span>
+   <h1>Bem-vindo ao Café Aurora</h1>
+   <p>O melhor começo para o seu dia, preparado com carinho e ingredientes selecionados.</p>
+   <div class="acoes">
+    <a class="btn" href="#produtos">Conheça nosso Cardápio</a>
+    <a class="btn sec" href="#contato">Fale Conosco</a>
+   </div>
+  </div>
+  <div class="mascote">
+   <svg viewBox="0 0 240 260" role="img" aria-label="Biscoitinho, a xícara mascote do Café Aurora, com touca de Papai Noel">
+    <ellipse cx="120" cy="244" rx="80" ry="10" fill="#000" opacity=".25"/>
+    <path d="M196 120c32-4 40 34 12 48-8 4-18 5-26 4" fill="none" stroke="#FAF7F2" stroke-width="14" stroke-linecap="round"/>
+    <path d="M40 100h160v56c0 44-34 78-80 78s-80-34-80-78z" fill="#FAF7F2"/>
+    <ellipse cx="120" cy="100" rx="80" ry="16" fill="#6F4E37"/>
+    <ellipse cx="120" cy="98" rx="68" ry="10" fill="#8A6347"/>
+    <path d="M52 66c4-40 40-62 76-52 26 8 40 30 38 54z" fill="#D9534F"/>
+    <rect x="42" y="62" width="156" height="22" rx="11" fill="#fff"/>
+    <circle cx="166" cy="14" r="13" fill="#fff"/>
+    <circle cx="92" cy="150" r="7" fill="#3E2C20"/><circle cx="148" cy="150" r="7" fill="#3E2C20"/>
+    <circle cx="94" cy="147" r="2.4" fill="#fff"/><circle cx="150" cy="147" r="2.4" fill="#fff"/>
+    <ellipse cx="72" cy="168" rx="11" ry="7" fill="#F2A58E"/><ellipse cx="168" cy="168" rx="11" ry="7" fill="#F2A58E"/>
+    <path d="M104 166q16 16 32 0" fill="none" stroke="#3E2C20" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="88" cy="238" rx="18" ry="9" fill="#FAF7F2"/><ellipse cx="152" cy="238" rx="18" ry="9" fill="#FAF7F2"/>
+   </svg>
+   <small>Oi, eu sou o Biscoitinho! ☕</small>
+  </div>
+ </div>
+</section>
+
+<section class="sobre" id="sobre">
+ <div class="wrap">
+  <div>
+   <h2>Sobre nós</h2>
+   <p>O Café Aurora nasceu da vontade de oferecer um café de verdade: grãos 100% arábica, extração cuidadosa e receitas feitas com ingredientes selecionados.</p>
+   <p>Aqui você encontra cafés clássicos, bebidas cremosas, pães de queijo quentinhos e doces assados todos os dias. Venha trabalhar, conversar ou simplesmente fazer uma pausa no ambiente aconchegante que preparamos para você.</p>
+  </div>
+  <div class="numeros">
+   <div><strong>100%</strong>grãos arábica</div>
+   <div><strong>25+</strong>itens no cardápio</div>
+   <div><strong>Diário</strong>assados na hora</div>
+   <div><strong>Natal</strong>edições limitadas</div>
+  </div>
+ </div>
+</section>
+
+<section id="produtos">
+ <div class="wrap">
+  <h2>Nossos produtos</h2>
+  <p class="sub">Alguns dos favoritos da casa. Logo abaixo está o cardápio completo.</p>
+  <div class="destaques">
+   <article class="card"><span class="emoji">☕</span><h3>Café Expresso</h3><p>Rico, encorpado e extraído com perfeição.</p><span class="preco">A partir de R$ 6,00</span></article>
+   <article class="card"><span class="emoji">🥛</span><h3>Cappuccino Cremoso</h3><p>Café, leite vaporizado, toque de cacau e muita cremosidade.</p><span class="preco">R$ 11,00</span></article>
+   <article class="card"><span class="emoji">🧀</span><h3>Pão de Queijo Artesanal</h3><p>Assado na hora, quentinho e com receita tradicional mineira.</p><span class="preco">R$ 6,50</span></article>
+  </div>
+ </div>
+</section>
+
+<section class="natal" id="natal">
+ <div class="wrap">
+  <h2>Especial de Natal</h2>
+  <p class="sub">Edições limitadas, só durante as festas.</p>
+  <div class="destaques">
+   <article class="card"><span class="tag">Edição Limitada</span><span class="emoji">🍫</span><h3>Chocottino Navideño</h3><p>Cappuccino cremoso da casa com raspas de chocolate belga, calda de nozes e uma pitada de canela e gengibre.</p><span class="preco">R$ 14,00</span></article>
+   <article class="card"><span class="tag">Edição Limitada</span><span class="emoji">🧊</span><h3>Iced Latte de Panetone</h3><p>Café expresso, leite, xarope artesanal de frutas secas e essência de panetone, finalizado com chantilly.</p><span class="preco">R$ 16,00</span></article>
+   <article class="card"><span class="tag">Edição Limitada</span><span class="emoji">🌲</span><h3>Cheesecake de Frutas Vermelhas com Alecrim</h3><p>Fatia cremosa com calda agridoce de amoras e framboesas, decorada com um raminho fresco de alecrim.</p><span class="preco">R$ 16,50</span></article>
+   <article class="card"><span class="tag">Edição Limitada</span><span class="emoji">⭐</span><h3>Biscoitos Amanteigados de Natal</h3><p>Kit com 5 unidades em formato de estrelas e árvores, assados na hora e decorados com glacê real.</p><span class="preco">R$ 12,00</span></article>
+  </div>
+ </div>
+</section>
+
+<section class="cardapio" id="cardapio">
+ <div class="wrap">
+  <h2>Cardápio completo</h2>
+  <p class="sub">Assados e preparados diariamente em nossa cozinha.</p>
+  <div class="cats">
+
+   <div class="cat"><h3>🌟 Café &amp; Clássicos</h3><p>Grãos 100% arábica da melhor qualidade.</p><ul>
+    <li><b>Café Expresso Curto <span>R$ 6,00</span></b><small>Uma dose concentrada, encorpada e aromática.</small></li>
+    <li><b>Café Expresso Duplo <span>R$ 8,50</span></b><small>Para quem quer um sabor ainda mais intenso e marcante.</small></li>
+    <li><b>Café Coado na Hora <span>R$ 7,00</span></b><small>Método tradicional, limpo e cheio de notas florais e frutadas.</small></li>
+    <li><b>Café Macchiato <span>R$ 9,00</span></b><small>Expresso manchado com uma delicada camada de espuma de leite.</small></li>
+    <li><b>Café Americano <span>R$ 7,50</span></b><small>Expresso diluído em água quente, suave e equilibrado.</small></li></ul></div>
+
+   <div class="cat"><h3>🥛 Cremosos &amp; Especiais</h3><p>Bebidas reconfortantes com texturas aveludadas.</p><ul>
+    <li><b>Cappuccino Tradicional <span>R$ 11,00</span></b><small>Café expresso, leite vaporizado, cacau em pó e muita cremosidade.</small></li>
+    <li><b>Cappuccino Aurora <span>R$ 13,50</span></b><small>Cappuccino especial com borda de doce de leite e toque de canela.</small></li>
+    <li><b>Latte Cremoso <span>R$ 10,00</span></b><small>Leite vaporizado com uma dose suave de expresso.</small></li>
+    <li><b>Mocha de Chocolate <span>R$ 14,00</span></b><small>Expresso, calda de chocolate artesanal, leite vaporizado e chantilly.</small></li>
+    <li><b>Chocolate Quente Belga <span>R$ 12,50</span></b><small>Feito com chocolate ao leite derretido, cremoso e encorpado.</small></li></ul></div>
+
+   <div class="cat"><h3>🧊 Bebidas Geladas &amp; Refrigerantes</h3><p>Refrescância e sabor para os dias mais quentes.</p><ul>
+    <li><b>Iced Latte <span>R$ 11,50</span></b><small>Café expresso, leite gelado e cubos de gelo.</small></li>
+    <li><b>Iced Mocha Caramel <span>R$ 15,00</span></b><small>Expresso, leite, gelo e calda artesanal de caramelo salgado.</small></li>
+    <li><b>Frappé de Café <span>R$ 16,00</span></b><small>Café batido com gelo, leite e cobertura de chantilly.</small></li>
+    <li><b>Soda Italiana de Frutas Vermelhas <span>R$ 12,00</span></b><small>Água com gás, xarope artesanal de frutas vermelhas e rodelas de limão siciliano.</small></li>
+    <li><b>Chá Gelado de Pêssego com Hortelã <span>R$ 9,50</span></b><small>Infusão natural gelada, leve e refrescante.</small></li></ul></div>
+
+   <div class="cat"><h3>🥐 Salgados &amp; Acompanhamentos</h3><p>Assados e preparados diariamente em nossa cozinha.</p><ul>
+    <li><b>Pão de Queijo Tradicional Mineiro <span>R$ 6,50</span></b><small>Quentinho, crocante por fora e macio por dentro.</small></li>
+    <li><b>Pão de Queijo Recheado com Requeijão <span>R$ 9,00</span></b><small>Nosso clássico pão de queijo recheado com requeijão cremoso.</small></li>
+    <li><b>Croissant de Frango com Requeijão <span>R$ 13,00</span></b><small>Massa folhada amanteigada e dourada, assada na hora.</small></li>
+    <li><b>Quiche Lorraine <span>R$ 14,50</span></b><small>Fatia de torta salgada leve com bacon e queijo.</small></li>
+    <li><b>Pão na Chapa com Manteiga <span>R$ 7,00</span></b><small>Pão de fermentação natural. Simples, clássico e irresistível.</small></li></ul></div>
+
+   <div class="cat"><h3>🍰 Doces &amp; Sobremesas</h3><p>Para acompanhar o seu café com um toque de doçura.</p><ul>
+    <li><b>Bolo Caseiro da Vovó (fatia) <span>R$ 8,00</span></b><small>Sabores do dia: cenoura com chocolate, fubá com erva-doce ou laranja.</small></li>
+    <li><b>Cheesecake de Frutas Vermelhas <span>R$ 15,00</span></b><small>Cremoso, com base de biscoito e calda agridoce artesanal.</small></li>
+    <li><b>Brownie de Chocolate com Nozes <span>R$ 11,00</span></b><small>Molhadinho por dentro, com casquinha crocante.</small></li>
+    <li><b>Cookie com Gotas de Chocolate Belga <span>R$ 9,00</span></b><small>Assado na hora, servido levemente morno.</small></li>
+    <li><b>Torta de Maçã com Canela <span>R$ 13,50</span></b><small>Fatia generosa com massa amanteigada e maçãs caramelizadas.</small></li></ul></div>
+
+  </div>
+ </div>
+</section>
+
+<section id="diferenciais">
+ <div class="wrap">
+  <h2>Nossos diferenciais</h2>
+  <p class="sub">O que faz do Café Aurora um lugar para voltar.</p>
+  <div class="difs">
+   <div class="dif"><div class="ic">🛋️</div><h3>Ambiente aconchegante para trabalhar ou conversar</h3></div>
+   <div class="dif"><div class="ic">🌿</div><h3>Ingredientes selecionados e preparados diariamente</h3></div>
+   <div class="dif"><div class="ic">☕</div><h3>Grãos 100% arábica da melhor qualidade</h3></div>
+   <div class="dif"><div class="ic">🎄</div><h3>Edições limitadas a cada estação</h3></div>
+  </div>
+ </div>
+</section>
+
+<section class="contato" id="contato">
+ <div class="wrap">
+  <div>
+   <h2>Fale conosco</h2>
+   <p class="sub">Dúvidas, encomendas ou reservas para grupos? Escreva ou venha nos visitar.</p>
+   <ul class="infos">
+    <li><span class="ic">📞</span><div><b>Telefone</b><br><a href="tel:+5565999990000">(65) 99999-0000</a></div></li>
+    <li><span class="ic">✉️</span><div><b>E-mail</b><br><a href="mailto:contato@cafeaurora.com.br">contato@cafeaurora.com.br</a></div></li>
+    <li><span class="ic">📍</span><div><b>Endereço</b><br>Rua das Acácias, 123, Centro<br>Cuiabá, MT</div></li>
+    <li><span class="ic">🕗</span><div><b>Horário</b><br>Seg a sáb, 7h às 20h. Dom, 8h às 14h</div></li>
+   </ul>
+  </div>
+  <form action="mailto:contato@cafeaurora.com.br" method="post" enctype="text/plain">
+   <div><label for="nome">Nome</label><input id="nome" name="nome" type="text" required autocomplete="name"></div>
+   <div><label for="email">E-mail</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+   <div><label for="msg">Mensagem</label><textarea id="msg" name="mensagem" required></textarea></div>
+   <button class="btn" type="submit">Enviar mensagem</button>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <p><strong>Café Aurora</strong> &copy; 2026. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
